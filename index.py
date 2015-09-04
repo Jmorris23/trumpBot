@@ -15,7 +15,7 @@ def application(req,resp):
     text = data['text']
     body = ""
     if re.search(r'\btrump\b', text, re.I):
-        quotes = [line.rstrip('\n') for line in open('/home/chris/dev/trumpbot/quotes.txt')]
+        quotes = [line.rstrip('\n') for line in open('PATH TO quotes.txt')]
         body = quotes[random.randint(0,(len(quotes) - 1))]
         url = "https://api.groupme.com/v3/bots/post"
         group_id = data['group_id']
