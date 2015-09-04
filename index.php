@@ -1,3 +1,6 @@
+// THIS IS DEPRECATED
+// Use index.py instead
+
 <?php
 $botId = "<BOT_ID>";
 
