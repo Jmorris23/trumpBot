@@ -14,6 +14,9 @@ def application(req,resp):
     data = json.loads(req['wsgi.input'].read(int(req.get('CONTENT_LENGTH',0))))
     text = data['text']
     body = ""
+
+
+    #Actual Logic
     if re.search(r'\btrump\b', text, re.I):
         quotes = [line.rstrip('\n') for line in open('PATH TO quotes.txt')]
         body = quotes[random.randint(0,(len(quotes) - 1))]
@@ -23,6 +26,8 @@ def application(req,resp):
         post = urllib.urlencode(values)
         req = urllib2.Request(url,post)
         response = urllib2.urlopen(req)
+
+    # Return status
     status = '200 OK'
     response_headers = [('Content-Type', 'text/plain'),
                         ('Content-Length', str(len(body)))]
